@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-7-11 13:20:21 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.lql.entity.Student" table="TB_STUDENT">
+		<id name="id" type="java.lang.Integer">
+			<column name="ID" />
+			<generator class="native" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="NAME" />
+		</property>
+		<property name="sex" type="java.lang.String">
+			<column name="SEX" />
+		</property>
+		<!-- 映射单项n-1的映射关系 -->
+		<!-- <many-to-one name="clazz" class="com.lql.entity.Clazz" lazy="false" 
+			cascade="delete"> <column name="CLAZZ_ID" /> </many-to-one> -->
+		<many-to-one name="clazz" class="com.lql.entity.Clazz"
+			fetch="join">
+			<column name="CLAZZ_ID" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

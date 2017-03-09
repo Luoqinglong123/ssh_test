@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="true" />
+
+	<package name="default" namespace="/" extends="struts-default">
+		<action name="stu-*" class="com.lql.ssh.actions.StudentAction" method="{1}">
+				<result name="list">/WEB-INF/views/stu-list.jsp</result>
+				<result name="updateP">/WEB-INF/views/stu-update.jsp</result>
+				<result type="redirect">stu-list.action</result>
+				<result name="saveP" >/WEB-INF/views/stu-save.jsp</result>
+		</action>
+			<action name="clazz-*" class="com.lql.ssh.actions.ClazzAction" method="{1}">
+				<result name="list">/WEB-INF/views/clazz-list.jsp</result>
+				<result name="updateP">/WEB-INF/views/clazz-update.jsp</result>
+				<result type="redirect">clazz-list.action</result>
+				<result name="saveP" >/WEB-INF/views/clazz-save.jsp</result>
+		</action>
+	</package>
+	
+	
+</struts>
